@@ -1,4 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { UserButton } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
+import { SignedOut } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -9,8 +13,14 @@ export default function Home() {
         </div>
         <p className="mt-4 text-gray-600 text-center">Welcome to the Tiktok Clone, Share and Watch Small Videos</p>
       </div>
-
-      <Button>Sign-in/Login</Button>
+      <SignedOut>
+        <SignInButton mode="modal">
+          <Button>Login/Sign-up</Button>
+        </SignInButton>
+      </SignedOut>
+      <SignedIn>
+        <UserButton afterSignOutUrl="/" />
+      </SignedIn>
     </main>
   );
 }
