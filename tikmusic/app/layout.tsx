@@ -14,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ClerkProvider>
+      <ClerkProvider
+        signInForceRedirectUrl = "/profile"
+        signUpForceRedirectUrl = "/profile"
+      >
         <body>{children}</body>
       </ClerkProvider>
     </html>
